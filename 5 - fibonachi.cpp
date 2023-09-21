@@ -16,30 +16,30 @@ int main()
         std::cin >> a;
         if(std::cin.fail())
         {
-            std::cout << "Ââåäåíà ñòğîêà" << std::endl;
+            std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ğ° ÑÑ‚Ñ€Ğ¾ĞºĞ°" << std::endl;
             std::cin.clear();
             std::cin.ignore(INT_MAX, '\n');
             a = 0;
         }
         else if(a < 1)
         {
-            std::cout << "Ââåäåííîå ÷èñëî ìåíüøå 0" << std::endl;
+            std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ğ½Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ¼ĞµĞ½ÑŒÑˆĞµ 0" << std::endl;
             a = 0;
         }
         else if(int(a) != a)
         {
-            std::cout << "Ââåäåííîå ÷èñëî íåöåëîå" << std::endl;
+            std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ğ½Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ½ĞµÑ†ĞµĞ»Ğ¾Ğµ" << std::endl;
             a = 0;
         }
         else if(a > 100)
         {
-            std::cout << "Ââåäåííîå ÷èñëî áîëüøå 100" << std::endl;
+            std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ğ½Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ±Ğ¾Ğ»ÑŒÑˆĞµ 100" << std::endl;
             a = 0;
         }
         else
         {
             struct very_long_int fib[int(a + 1)];
-            // çàäàåì ïåğâûå äâà ÷èñëà
+            // Ğ·Ğ°Ğ´Ğ°ĞµĞ¼ Ğ¿ĞµÑ€Ğ²Ñ‹Ğµ Ğ´Ğ²Ğ° Ñ‡Ğ¸ÑĞ»Ğ°
             fib[0].value[0] = 0;
             fib[1].value[0] = 1;
             for(int i = 2; i < a + 1; i++)
@@ -48,7 +48,7 @@ int main()
                 int n1 = fib[i - 2].n;
                 int n2 = fib[i - 1].n;
                 int j;
-                // ñêëàäûâàåì ïîğàçğÿäíî ñ ìåíüøèì ÷èñëîì
+                // ÑĞºĞ»Ğ°Ğ´Ñ‹Ğ²Ğ°ĞµĞ¼ Ğ¿Ğ¾Ñ€Ğ°Ğ·Ñ€ÑĞ´Ğ½Ğ¾ Ñ Ğ¼ĞµĞ½ÑŒÑˆĞ¸Ğ¼ Ñ‡Ğ¸ÑĞ»Ğ¾Ğ¼
                 for(j = 0; j < n1; j++)
                 {
                     int temp = (fib[i - 1].value[j]  + fib[i - 2].value[j] + res);
@@ -56,48 +56,48 @@ int main()
                     fib[i].n = j + 1;
                     if(fib[i].value == NULL)
                     {
-                        std::cout << "Îøèáêà âûäåëåíèÿ ïàìÿòè" << std::endl;
+                        std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ²Ñ‹Ğ´ĞµĞ»ĞµĞ½Ğ¸Ñ Ğ¿Ğ°Ğ¼ÑÑ‚Ğ¸" << std::endl;
                         return 0;
                     }
                     fib[i].value[j] = temp % 10;
                     res = temp / 10;
                 }
-                // ïğèáàâëÿåì îñòàâøèåñÿ ğàçğÿäû áîëüøåãî
+                // Ğ¿Ñ€Ğ¸Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ğ¾ÑÑ‚Ğ°Ğ²ÑˆĞ¸ĞµÑÑ Ñ€Ğ°Ğ·Ñ€ÑĞ´Ñ‹ Ğ±Ğ¾Ğ»ÑŒÑˆĞµĞ³Ğ¾
                 for(j; j < n2; j++)
                 {
                     int temp = (fib[i - 1].value[j] + res);
                     fib[i].value = (int*)realloc(fib[i].value, (j + 1)*sizeof(int));
                     if(fib[i].value == NULL)
                     {
-                        std::cout << "Îøèáêà âûäåëåíèÿ ïàìÿòè" << std::endl;
+                        std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ²Ñ‹Ğ´ĞµĞ»ĞµĞ½Ğ¸Ñ Ğ¿Ğ°Ğ¼ÑÑ‚Ğ¸" << std::endl;
                         return 0;
                     }
                     fib[i].n = j + 1;
                     fib[i].value[j] = temp % 10;
                     res = temp / 10;
                 }
-                // çàïèñûâàåì îñòàòîê åñëè íóæíî
+                // Ğ·Ğ°Ğ¿Ğ¸ÑÑ‹Ğ²Ğ°ĞµĞ¼ Ğ¾ÑÑ‚Ğ°Ñ‚Ğ¾Ğº ĞµÑĞ»Ğ¸ Ğ½ÑƒĞ¶Ğ½Ğ¾
                 if(res)
                 {
                     fib[i].value = (int*)realloc(fib[i].value, (j + 1)*sizeof(int));
                     if(fib[i].value == NULL)
                     {
-                        std::cout << "Îøèáêà âûäåëåíèÿ ïàìÿòè" << std::endl;
+                        std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ²Ñ‹Ğ´ĞµĞ»ĞµĞ½Ğ¸Ñ Ğ¿Ğ°Ğ¼ÑÑ‚Ğ¸" << std::endl;
                         return 0;
                     }
                     fib[i].n = j + 1;
                     fib[i].value[j] = res;
                 }
             }
-            // âûâîä
-            std::cout << "Ïåğâûå " << int(a) << " ÷èñåë Ôèáîíà÷è: ";
+            // Ğ²Ñ‹Ğ²Ğ¾Ğ´
+            std::cout << "ĞŸĞµÑ€Ğ²Ñ‹Ğµ " << int(a) << " Ñ‡Ğ¸ÑĞµĞ» Ğ¤Ğ¸Ğ±Ğ¾Ğ½Ğ°Ñ‡Ğ¸: ";
             for(int i = 0; i < a + 1; i++)
             {
                 int n = fib[i].n;
                 for(int j = n - 1; j > -1; j--)
                     std::cout << fib[i].value[j];
                 std::cout << " ";
-                // î÷èñòêà ïàìÿòè
+                // Ğ¾Ñ‡Ğ¸ÑÑ‚ĞºĞ° Ğ¿Ğ°Ğ¼ÑÑ‚Ğ¸
                 delete fib[i].value;
             }
         }
