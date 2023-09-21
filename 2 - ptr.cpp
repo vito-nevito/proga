@@ -21,4 +21,5 @@ int N = 10;
 auto c2 = new int[N][3];
 //auto c2 = new int[3][N];// так нельз€
 //double* c3 = new double[]{1, 2, 3};// сразу ининциализировать начина€ с —++20
+
 }
