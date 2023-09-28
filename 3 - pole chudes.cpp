@@ -7,14 +7,14 @@ int main()
     SetConsoleCP ( 1251 ) ;
     SetConsoleOutputCP ( 1251 ) ;
     std::string slovo;
-    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»Ð¾Ð²Ð¾: ";
+    std::cout << "Ââåäèòå ñëîâî: ";
     std::cin >> slovo;
     std::string otvet(slovo.size(), '-');
     std::cout << otvet << std::endl;
     while(slovo != otvet)
     {
         char lit;
-        std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð±ÑƒÐºÐ²Ñƒ: ";
+        std::cout << "Ââåäèòå áóêâó: ";
         std::cin >> lit;
         std::cout << std::endl;
         int c = 0;
@@ -32,13 +32,13 @@ int main()
             }
         }
         if(c == 1)
-            std::cout << "Ð£Ð³Ð°Ð´Ð°Ð»Ð¸ :)" << std::endl;
+            std::cout << "Óãàäàëè :)" << std::endl;
         else if(c == 2)
-            std::cout << "Ð‘ÑƒÐºÐ²Ð° ÑƒÐ¶Ðµ Ð±Ñ‹Ð»Ð° :O" << std::endl;
+            std::cout << "Áóêâà óæå áûëà :O" << std::endl;
         else
-            std::cout << "ÐÐµÑ‚ Ñ‚Ð°ÐºÐ¾Ð¹ Ð±ÑƒÐºÐ²Ñ‹ :(" << std::endl;
+            std::cout << "Íåò òàêîé áóêâû :(" << std::endl;
 
         std::cout << std::endl << otvet << std::endl;
     }
-    std::cout << "Ð’Ñ‹ ÑƒÐ³Ð°Ð´Ð°Ð»Ð¸ ÑÐ»Ð¾Ð²Ð¾ - " << slovo << "! ÐŸÐ¾Ð·Ð´Ñ€Ð°Ð²ÑÑŽ!"<< std::endl;
+    std::cout << "Âû óãàäàëè ñëîâî - " << slovo << "! Ïîçäðàâÿþ!"<< std::endl;
 }
