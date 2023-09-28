@@ -5,30 +5,30 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     double a = 0;
-    std::cout << "Ââåäèòå ÷èñëî: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ";
     while(!a)
     {
         std::cin >> a;
         if(std::cin.fail())
         {
-            std::cout << "Ââåäåíà ñòðîêà" << std::endl;
+            std::cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ°" << std::endl;
             std::cin.clear();
             std::cin.ignore(INT_MAX, '\n');
             a = 0;
         }
         else if(a < 0)
         {
-            std::cout << "Ââåäåííîå ÷èñëî ìåíüøå 0" << std::endl;
+            std::cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼ÐµÐ½ÑŒÑˆÐµ 0" << std::endl;
             a = 0;
         }
         else if(int(a) != a)
         {
-            std::cout << "Ââåäåííîå ÷èñëî íåöåëîå" << std::endl;
+            std::cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð½ÐµÑ†ÐµÐ»Ð¾Ðµ" << std::endl;
             a = 0;
         }
         else if(a > 100000)
         {
-            std::cout << "Ââåäåííîå ÷èñëî áîëüøå 100 000" << std::endl;
+            std::cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð±Ð¾Ð»ÑŒÑˆÐµ 100 000" << std::endl;
             a = 0;
         }
         else
@@ -36,7 +36,7 @@ int main()
             int* fact = (int*)calloc(1, sizeof(int));
             fact[0] = 1;
             int zeros_5 = 0;
-            // ñ÷èòàåì êîëè÷åñòâî íóëåé â ôàêòîðèàëå
+            // ÑÑ‡Ð¸Ñ‚Ð°ÐµÐ¼ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð½ÑƒÐ»ÐµÐ¹ Ð² Ñ„Ð°ÐºÑ‚Ð¾Ñ€Ð¸Ð°Ð»Ðµ
             unsigned long int n = a;
             while(n / 5 > 0)
             {
@@ -48,7 +48,7 @@ int main()
             for(long int i = 1; i < a + 1; i++)
             {
                 long int k = i;
-                // óáèðàåì èç ÷èñëà ëèøíèå ìíîæèòåëè(5 è 2)
+                // ÑƒÐ±Ð¸Ñ€Ð°ÐµÐ¼ Ð¸Ð· Ñ‡Ð¸ÑÐ»Ð° Ð»Ð¸ÑˆÐ½Ð¸Ðµ Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»Ð¸(5 Ð¸ 2)
                 while(k % 5 == 0)
                 {
                     k /= 5;
@@ -59,21 +59,21 @@ int main()
                     zeros_2 -= 1;
                 }
                 int res = 0;
-                // óìíîæàåì íà ïîëó÷åííûé ìíîæèòåëü ïîðàçðÿäíî
+                // ÑƒÐ¼Ð½Ð¾Ð¶Ð°ÐµÐ¼ Ð½Ð° Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ñ‹Ð¹ Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð¿Ð¾Ñ€Ð°Ð·Ñ€ÑÐ´Ð½Ð¾
                 for(unsigned long int j = 0; j < n; j++)
                 {
                     unsigned long int temp = (fact[j] * k + res);
                     fact[j] = temp % 10;
                     res = temp / 10;
                 }
-                // çàïèñü îñòàòêà
+                // Ð·Ð°Ð¿Ð¸ÑÑŒ Ð¾ÑÑ‚Ð°Ñ‚ÐºÐ°
                 while(res > 0)
                 {
                     n += 1;
                     fact = (int*)std::realloc(fact, n*sizeof(int));
                     if (fact == NULL)
                     {
-                        std::cout << "Îøèáêà âûäåëåíèÿ ïàìÿòè" << std::endl;
+                        std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ñ Ð¿Ð°Ð¼ÑÑ‚Ð¸" << std::endl;
                         return 0;
                     }
                     fact[n-1] = res % 10;
@@ -81,13 +81,13 @@ int main()
                 }
             }
             unsigned long int num_count[10] {0};
-            // âûâîä
+            // Ð²Ñ‹Ð²Ð¾Ð´
             for(long int i = n - 1; i >= 0; i--)
             {
                 std::cout << fact[i];
                 num_count[fact[i]] += 1;
             }
-            // ó÷èòàâàòü ïîñëåäíèå íóëè
+            // ÑƒÑ‡Ð¸Ñ‚Ð°Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð½ÑƒÐ»Ð¸
             /*
             num_count[0] += zeros_5;
             n += zeros_5;
@@ -95,11 +95,11 @@ int main()
             for(long int i = 0; i < zeros_5; i++)
                 std::cout << 0;
             std::cout << std::endl << std::endl;
-            // ðàñïåðäåëåíèå öèôð â ôàêòîðèàëå
-            std::cout << "Ðàñïðåäåëåíèå öèôð â ôàêòîðèàëå: " << int(a) << "!" << std::endl;
+            // Ñ€Ð°ÑÐ¿ÐµÑ€Ð´ÐµÐ»ÐµÐ½Ð¸Ðµ Ñ†Ð¸Ñ„Ñ€ Ð² Ñ„Ð°ÐºÑ‚Ð¾Ñ€Ð¸Ð°Ð»Ðµ
+            std::cout << "Ð Ð°ÑÐ¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ñ†Ð¸Ñ„Ñ€ Ð² Ñ„Ð°ÐºÑ‚Ð¾Ñ€Ð¸Ð°Ð»Ðµ: " << int(a) << "!" << std::endl;
             for(int i = 0; i < 10; i++)
                 std::cout << i << ": "<< std::round(num_count[i] * 1000 / n) / 10. << " %" << std::endl;
-            // î÷èñòêà ïàìÿòè
+            // Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ° Ð¿Ð°Ð¼ÑÑ‚Ð¸
             delete fact;
         }
     }

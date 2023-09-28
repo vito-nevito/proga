@@ -14,7 +14,7 @@ very_long_int slogit(very_long_int a, very_long_int b)
     int n1 = a.n;
     int n2 = b.n;
     int j;
-    // складываем поразрядно с меньшим числом
+    // СЃРєР»Р°РґС‹РІР°РµРј РїРѕСЂР°Р·СЂСЏРґРЅРѕ СЃ РјРµРЅСЊС€РёРј С‡РёСЃР»РѕРј
     for(j = 0; j < n1; j++)
     {
         int temp = (a.value[j]  + b.value[j] + res);
@@ -22,31 +22,31 @@ very_long_int slogit(very_long_int a, very_long_int b)
         ans.n = j + 1;
         if(ans.value == NULL)
         {
-            std::cout << "Ошибка выделения памяти" << std::endl;
+            std::cout << "РћС€РёР±РєР° РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё" << std::endl;
         }
         ans.value[j] = temp % 10;
         res = temp / 10;
     }
-    // прибавляем оставшиеся разряды большего
+    // РїСЂРёР±Р°РІР»СЏРµРј РѕСЃС‚Р°РІС€РёРµСЃСЏ СЂР°Р·СЂСЏРґС‹ Р±РѕР»СЊС€РµРіРѕ
     for(j; j < n2; j++)
     {
         int temp = (b.value[j] + res);
         ans.value = (int*)realloc(ans.value, (j + 1)*sizeof(int));
         if(ans.value == NULL)
         {
-            std::cout << "Ошибка выделения памяти" << std::endl;
+            std::cout << "РћС€РёР±РєР° РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё" << std::endl;
         }
         ans.n = j + 1;
         ans.value[j] = temp % 10;
         res = temp / 10;
     }
-    // записываем остаток если нужно
+    // Р·Р°РїРёСЃС‹РІР°РµРј РѕСЃС‚Р°С‚РѕРє РµСЃР»Рё РЅСѓР¶РЅРѕ
     if(res)
     {
         ans.value = (int*)realloc(ans.value, (j + 1)*sizeof(int));
         if(ans.value == NULL)
         {
-            std::cout << "Ошибка выделения памяти" << std::endl;
+            std::cout << "РћС€РёР±РєР° РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё" << std::endl;
         }
         ans.n = j + 1;
         ans.value[j] = res;
@@ -79,36 +79,36 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     double a = 0;
-    std::cout << "Введите число: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ";
     while(!a)
     {
         std::cin >> a;
         if(std::cin.fail())
         {
-            std::cout << "Введена строка" << std::endl;
+            std::cout << "Р’РІРµРґРµРЅР° СЃС‚СЂРѕРєР°" << std::endl;
             std::cin.clear();
             std::cin.ignore(INT_MAX, '\n');
             a = 0;
         }
         else if(a < 1)
         {
-            std::cout << "Введенное число меньше 0" << std::endl;
+            std::cout << "Р’РІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ РјРµРЅСЊС€Рµ 0" << std::endl;
             a = 0;
         }
         else if(int(a) != a)
         {
-            std::cout << "Введенное число нецелое" << std::endl;
+            std::cout << "Р’РІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ РЅРµС†РµР»РѕРµ" << std::endl;
             a = 0;
         }
         else if(a > 100)
         {
-            std::cout << "Введенное число больше 100" << std::endl;
+            std::cout << "Р’РІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ 100" << std::endl;
             a = 0;
         }
         else
         {
             struct very_long_int c[int(a + 1)];
-            std::cout << "Первые " << int(a) << " чисел Фибоначи: ";
+            std::cout << "РџРµСЂРІС‹Рµ " << int(a) << " С‡РёСЃРµР» Р¤РёР±РѕРЅР°С‡Рё: ";
             struct very_long_int der = fibonachi(int(a), c);
             for(int i = 0; i < int(a) + 1; i++)
             {
@@ -116,28 +116,28 @@ int main()
                 for(int j = n - 1; j > -1; j--)
                     std::cout << c[i].value[j];
                 std::cout << " ";
-                // очистка памяти
+                // РѕС‡РёСЃС‚РєР° РїР°РјСЏС‚Рё
                 delete c[i].value;
             }
             std::cout << std::endl;
             std::cout << std::endl;
             struct very_long_int fib[int(a + 1)];
-            // задаем первые два числа
+            // Р·Р°РґР°РµРј РїРµСЂРІС‹Рµ РґРІР° С‡РёСЃР»Р°
             fib[0].value[0] = 0;
             fib[1].value[0] = 1;
             for(int i = 2; i < a + 1; i++)
             {
                 fib[i] = slogit(fib[i - 2], fib[i - 1]);
             }
-            // вывод
-            std::cout << "Первые " << int(a) << " чисел Фибоначи: ";
+            // РІС‹РІРѕРґ
+            std::cout << "РџРµСЂРІС‹Рµ " << int(a) << " С‡РёСЃРµР» Р¤РёР±РѕРЅР°С‡Рё: ";
             for(int i = 0; i < a + 1; i++)
             {
                 int n = fib[i].n;
                 for(int j = n - 1; j > -1; j--)
                     std::cout << fib[i].value[j];
                 std::cout << " ";
-                // очистка памяти
+                // РѕС‡РёСЃС‚РєР° РїР°РјСЏС‚Рё
                 delete fib[i].value;
             }
         }
