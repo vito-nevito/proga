@@ -1,9 +1,11 @@
 #include<iostream>
 #include <cmath>
+#include <windows.h>
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
+    SetConsoleCP (CP_UTF8);
+    SetConsoleOutputCP (CP_UTF8);
     double a = 0;
     std::cout << "Введите число: ";
     while(!a)

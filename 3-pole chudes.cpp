@@ -4,8 +4,8 @@
 
 int main()
 {
-    SetConsoleCP ( 1251 ) ;
-    SetConsoleOutputCP ( 1251 ) ;
+    SetConsoleCP (CP_UTF8);
+    SetConsoleOutputCP (CP_UTF8);
     std::string slovo;
     std::cout << "Введите слово: ";
     std::cin >> slovo;
