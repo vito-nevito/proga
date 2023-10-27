@@ -4,9 +4,24 @@
 #include <fstream>
 #include <ctime>
 
+std::string getNline(std::string u, int N)
+{
+    std::string res;
+    std::ifstream file(u);
+    for(int i = 0; i < N; i++)
+        std::getline(file, res);
+    file.close();
+    return res;
+}
+
 class correctCin
 {
+private:
+    std::string m_url;
 public:
+    correctCin(): m_url{"error.txt"}
+    {};
+
     std::string corMenu()
     {
         std::string ans;
@@ -18,12 +33,12 @@ public:
             std::getline(std::cin, ans);
             if(std::strtol(ans.c_str(), NULL, 10) == 0)
             {
-                std::cout << "Введите число\n";
+                std::cout << getNline(m_url, 2) << std::endl;
                 k = 0;
             }
             else if(stoi(ans) < 0 || stoi(ans) > 3)
             {
-                std::cout << "Что-то пошло не так...\n";
+                std::cout << getNline(m_url, 1) << std::endl;
                 k =  0;
             }
         }
@@ -41,7 +56,7 @@ public:
             std::getline(std::cin, ans);
             if(ans != "y" && ans != "n")
             {
-                std::cout << "Что-то пошло не так...\n";
+                std::cout << getNline(m_url, 1) << std::endl;
                 k =  0;
             }
         }
@@ -55,7 +70,7 @@ public:
         while(!k)
         {
             k = 1;
-            std::cout << "Введите букву: ";
+            std::cout << getNline(m_url, 3);
             ans.clear();
             std::getline(std::cin, ans);
             if(ans.size() > 1)
@@ -120,14 +135,15 @@ public:
 class PoleChudes
 {
 private:
-    std::string m_url;        //ссылка на словарь
-    int m_status;                //результат игры
-    Slovo m_S;                //угадываемое слово
+    std::string m_url_dict;           //ссылка на словарь
+    std::string m_url_output;
+    int m_status;                     //результат игры
+    Slovo m_S;                        //угадываемое слово
 public:
     void createSlovo()
     {
         srand(time(NULL));
-        std::ifstream file(m_url);
+        std::ifstream file(m_url_dict);
         std::string s;
         std::getline(file, s);
         int N = rand()%(std::stoi(s)) + 1;
@@ -148,11 +164,11 @@ public:
         {
             int k = m_S.openLet(let);
             if(k == 0)
-                std::cout << "Нет такой буквы :(" << "\n";
+                std::cout << getNline(m_url_output, 1) << std::endl;
             else if(k == 1)
-                std::cout << "Угадали :)" << "\n";
+                std::cout << getNline(m_url_output, 2) << std::endl;
             else
-                std::cout << "Буква уже была :O" << "\n";
+                std::cout << getNline(m_url_output, 3) << std::endl;
             m_S.printMask();
         }
     }
@@ -160,7 +176,8 @@ public:
     void setGame(std::string a)
     {
         m_status = 0;
-        m_url = a;
+        m_url_dict = a;
+        m_url_output = "output.txt";
     }
 
     bool notEnd()
@@ -183,20 +200,19 @@ class Game
 private:
     int m_reyting;
     PoleChudes m_game;
+    std::string m_url_output;
 public:
 
-    Game()
-    {
-        m_reyting = 0;
-    }
+    Game(): m_reyting {0}, m_url_output {"output.txt"}
+    {};
 
     void start()
     {
-        std::cout << "Привет! Показать рейтинг(1), или начать игру(2)?" << std::endl;
+        std::cout << getNline(m_url_output, 4) << std::endl;
         correctCin _;
         std::string ans = _.corMenu();
         if(stoi(ans) == 1)
-            std::cout << "Сегодня вы сыграли " << m_reyting << " игр.\n"<< std::endl;
+            std::cout << getNline(m_url_output, 5) << m_reyting << getNline(m_url_output, 6) << std::endl;
         else if(stoi(ans) == 2)
             startGame();
         endGame();
@@ -211,16 +227,16 @@ public:
             m_game.vvodLet();
         }
         if(m_game.getStatus() != -1)
-                m_reyting ++;
+            m_reyting ++;
     }
 
     void endGame()
     {
         correctCin _;
-        std::cout << "Хотите продолжить?(y/n)" << std::endl;
+        std::cout << getNline(m_url_output, 7) << std::endl;
         std::string ans =_.corEnd();
         if(ans == "n")
-            std::cout << "До скорой встречи!" << std::endl;
+            std::cout << getNline(m_url_output, 8) << std::endl;
         else
             start();
     }
