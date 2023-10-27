@@ -13,7 +13,7 @@ std::string getNline(std::string u, int N)
     return res;
 }
 
-correctCin::correctCin() : m_url{"error.txt"}
+correctCin::correctCin() : m_url("error.txt")
 {}
 
 std::string correctCin::corMenu()
