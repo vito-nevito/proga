@@ -7,7 +7,7 @@
 #include "correctCin.h"
 #include "PoleChudes.cpp"
 
-Game::Game(): m_reyting {0}, m_url_output {"output.txt"}
+Game::Game(): m_reyting (0), m_url_output ("output.txt")
 {};
 
 void Game::start()
