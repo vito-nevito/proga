@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include <windows.h>
+#include <fstream>
 #include "correctCin.h"
 
 std::string getNline(std::string u, int N)

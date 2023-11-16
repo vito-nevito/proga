@@ -1,7 +1,6 @@
 #include <assert.h>
+#include<iostream>
 #include "Ochered.h"
-
-Ochered::Ochered(): m_data({}) {};
 
 void Ochered::push(int a)
 {

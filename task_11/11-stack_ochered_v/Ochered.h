@@ -2,6 +2,7 @@
 #define OCHERED_H
 
 #include<vector>
+#include"Stack.h"
 
 class Ochered : Stack
 {

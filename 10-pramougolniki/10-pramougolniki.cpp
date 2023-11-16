@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 #include <fstream>
-#include "Pramoug.cpp"
+#include "Pramoug.h"
 
 main(void)
 {

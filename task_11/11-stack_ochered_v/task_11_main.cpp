@@ -1,6 +1,6 @@
 #include<iostream>
-#include "Stack.cpp"
-#include "Ochered.cpp"
+#include "Stack.h"
+#include "Ochered.h"
 
 int main()
 {

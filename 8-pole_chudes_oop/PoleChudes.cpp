@@ -4,8 +4,8 @@
 #include <fstream>
 #include <ctime>
 #include "PoleChudes.h"
-#include "correctCin.cpp"
-#include "Slovo.cpp"
+#include "correctCin.h"
+#include "Slovo.h"
 
 void PoleChudes::createSlovo()
 {

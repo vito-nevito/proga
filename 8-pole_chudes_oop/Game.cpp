@@ -5,7 +5,7 @@
 #include <ctime>
 #include "Game.h"
 #include "correctCin.h"
-#include "PoleChudes.cpp"
+#include "PoleChudes.h"
 
 Game::Game(): m_reyting (0), m_url_output ("output.txt")
 {};

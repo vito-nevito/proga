@@ -1,7 +1,6 @@
 #include <assert.h>
+#include<iostream>
 #include "Stack.h"
-
-Stack::Stack(): m_data({}) {};
 
 void Stack::push(int a)
 {

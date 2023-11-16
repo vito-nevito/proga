@@ -1,0 +1,15 @@
+all: task.exe
+
+all: dump
+
+dump:
+	./task.exe
+
+task.exe: 10-pramougolniki.o Pramoug.o
+	g++ 10-pramougolniki.o Pramoug.o -o task.exe
+
+10-pramougolniki.o: 10-pramougolniki.cpp
+	g++ -c 10-pramougolniki.cpp
+
+Pramoug.o: Pramoug.cpp
+	g++ -c Pramoug.cpp

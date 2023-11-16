@@ -1,6 +1,8 @@
 #ifndef SLOVO_H
 #define SLOVO_H
 
+#include<string>
+
 class Slovo
 {
 private:

@@ -1,0 +1,24 @@
+all: task.exe
+
+all: dump
+
+dump:
+	./task.exe
+
+task.exe: 8-pole_chudes_oop.o correctCin.o Game.o PoleChudes.o Slovo.o
+	g++ 8-pole_chudes_oop.o correctCin.o Game.o PoleChudes.o Slovo.o -o task.exe
+
+8-pole_chudes_oop.o: 8-pole_chudes_oop.cpp
+	g++ -c 8-pole_chudes_oop.cpp
+
+correctCin.o: correctCin.cpp
+	g++ -c correctCin.cpp
+
+Game.o: Game.cpp
+	g++ -c Game.cpp
+
+PoleChudes.o: PoleChudes.cpp
+	g++ -c PoleChudes.cpp
+
+Slovo.o: Slovo.cpp
+	g++ -c Slovo.cpp

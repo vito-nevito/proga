@@ -3,7 +3,7 @@
 
 #include<vector>
 
-class Ochered : Stack
+class Ochered
 {
 private:
     std::vector<int> m_data;
