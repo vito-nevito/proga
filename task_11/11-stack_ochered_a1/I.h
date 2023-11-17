@@ -1,9 +1,7 @@
-#ifndef MYDATA_H
-#define MYDATA_H
+#ifndef I_H
+#define I_H
 
-#include<vector>
-
-class My_data
+class I
 {
 public:
     virtual void push(int a) = 0;

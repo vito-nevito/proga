@@ -1,0 +1,21 @@
+all: task.exe
+
+all: dump
+
+dump:
+	./task.exe
+
+task.exe: task_11_main.o Ochered.o Stack.o My_data.o
+	g++ task_11_main.o Ochered.o Stack.o My_data.o -o task.exe
+
+task_11_main.o: task_11_main.cpp
+	g++ -c task_11_main.cpp
+
+Ochered.o: Ochered.cpp
+	g++ -c Ochered.cpp
+
+Stack.o: Stack.cpp
+	g++ -c Stack.cpp
+
+My_data.o: My_data.cpp
+	g++ -c My_data.cpp
