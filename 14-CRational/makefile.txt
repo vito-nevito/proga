@@ -1,0 +1,15 @@
+all: task.exe
+
+all: dump
+
+dump:
+	./task.exe
+
+task.exe: main.o CRational.o
+	g++ main.o CRational.o -o task.exe
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+CRational.o: CRational.cpp
+	g++ -c CRational.cpp
