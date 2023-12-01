@@ -8,7 +8,11 @@ class Ochered
 private:
     std::vector<int> m_data;
 public:
-    Ochered();
+    Ochered(): m_data({})
+    {};
+
+    Ochered(std::initializer_list<int> a):m_data(a)
+    {};
 
     void push(int a);
 

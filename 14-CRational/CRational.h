@@ -16,6 +16,12 @@ public:
     int getN();
 
     int getD();
+
+    friend const CRational operator +(CRational& c1, CRational& c2);
+
+    friend const CRational operator -(CRational& c1, CRational& c2);
+
+    friend const CRational operator *(CRational& c1, CRational& c2);
 };
 
 #endif

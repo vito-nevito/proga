@@ -2,8 +2,6 @@
 #include<iostream>
 #include "Stack.h"
 
-Stack::Stack(): m_data({}) {};
-
 void Stack::push(int a)
 {
     m_data.push_back(a);

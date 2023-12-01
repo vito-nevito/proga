@@ -1,6 +1,4 @@
-all: task.exe
-
-all: dump
+all: task.exe dump clean
 
 dump:
 	./task.exe
@@ -13,3 +11,6 @@ main.o: main.cpp
 
 CRational.o: CRational.cpp
 	g++ -c CRational.cpp
+
+clean:
+	rm *.o task.exe

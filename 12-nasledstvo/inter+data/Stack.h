@@ -6,6 +6,9 @@
 class Stack : public My_data
 {
 public:
+    Stack():My_data() {};
+
+    Stack(std::initializer_list<int> a):My_data(a) {};
 
     int pop();
 

@@ -1,15 +1,18 @@
 #ifndef OCHERED_H
 #define OCHERED_H
 
-#include "My_data.h"
+#include "I.h"
 
-class Ochered : My_data
+class Ochered : I
 {
 protected:
     std::vector<int> m_data;
 
 public:
     Ochered(): m_data({})
+    {};
+
+    Ochered(std::initializer_list<int> a):m_data(a)
     {};
 
     virtual void push(int a);

@@ -8,7 +8,9 @@ class Stack
 private:
     std::vector<int> m_data;
 public:
-    Stack();
+    Stack(): m_data({}) {};
+
+    Stack(std::initializer_list<int> a):m_data(a) {};
 
     void push(int a);
 

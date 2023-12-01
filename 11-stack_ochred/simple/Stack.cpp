@@ -1,23 +1,20 @@
 #include <assert.h>
 #include<iostream>
-#include "Ochered.h"
+#include "Stack.h"
 
-Ochered::Ochered(): m_data({}) {};
-
-void Ochered::push(int a)
+void Stack::push(int a)
 {
     m_data.push_back(a);
 };
 
-int Ochered::pop()
+int Stack::pop()
 {
     if(m_data.empty())
     {
         std::cout << "NOOOOOO" << std::endl;
         std::exit(EXIT_FAILURE);
     }
-    int temp = m_data.front();
-    m_data.erase(m_data.begin());;
+    int temp = m_data.back();
+    m_data.pop_back();
     return temp;
 };
-

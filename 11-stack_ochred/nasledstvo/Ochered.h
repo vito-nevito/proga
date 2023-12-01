@@ -7,6 +7,9 @@
 class Ochered : Stack
 {
 public:
+
+    Ochered(std::initializer_list<int> a):Stack(a){};
+
     virtual void push(int a);
 
     virtual int pop();

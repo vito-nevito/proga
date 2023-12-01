@@ -4,10 +4,10 @@
 
 int main()
 {
-    Stack S;
+    Stack S{2, 3};
     S.push(3);
     std::cout << S.pop() << std::endl;
-    // std::cout << S.pop() << std::endl;
+    std::cout << S.pop() << std::endl;
 
     Ochered O;
     O.push(4);

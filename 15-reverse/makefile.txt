@@ -1,0 +1,22 @@
+all: task.exe dump clean
+
+dump:
+	./task.exe
+
+task.exe: main.o Ochered.o Stack.o Spisok.o
+	g++ main.o Ochered.o Stack.o Spisok.o -o task.exe
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+Ochered.o: Ochered.cpp
+	g++ -c Ochered.cpp
+
+Stack.o: Stack.cpp
+	g++ -c Stack.cpp
+
+Spisok.o: Spisok.cpp
+	g++ -c Spisok.cpp
+
+clean:
+	rm *.o task.exe
