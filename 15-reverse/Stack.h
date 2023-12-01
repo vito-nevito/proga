@@ -18,6 +18,12 @@ public:
 
     virtual int pop();
 
+    virtual std::vector<int> data();
+
+    virtual bool isEmpty();
+
+    virtual void print();
+
     ~Stack(){};
 };
 

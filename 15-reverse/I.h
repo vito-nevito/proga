@@ -10,7 +10,7 @@ public:
 
     virtual int pop() = 0;
 
-    virtual int* data() = 0;
+    virtual std::vector<int> data() = 0;
 
     virtual bool isEmpty() = 0;
 
